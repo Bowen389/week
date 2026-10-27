@@ -1,0 +1,26 @@
+{
+  "strategy": "WEEK_262B_V1",
+  "checked_at": "2026-10-27",
+  "source_rows": 1448,
+  "eligible_replay_rows": 1325,
+  "legacy_float_count": 262,
+  "decimal_count": 260,
+  "boundary_corrections": [
+    {
+      "code": "sh.600433",
+      "signal_date": "2025-11-07",
+      "exact_gain_pct": 4,
+      "reason": "4% is excluded by strict lower bound"
+    },
+    {
+      "code": "sh.601618",
+      "signal_date": "2025-08-08",
+      "exact_gain_pct": 4,
+      "reason": "4% is excluded by strict lower bound"
+    }
+  ],
+  "mean_net_return_pct": 0.7023718518356502,
+  "unexpected_missing": [],
+  "unexpected_extra": [],
+  "note": "Cached Sina OHLC replay, not a fresh Baostock connectivity check or 200k portfolio backtest."
+}

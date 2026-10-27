@@ -1,4 +1,4 @@
-name: Weekly signals and 200k paper account
+name: 262B weekly signals and 200k paper account
 on:
   schedule:
     - cron: '20 10 * * *'
