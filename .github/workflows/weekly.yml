@@ -1,0 +1,47 @@
+name: Weekly signals and 200k paper account
+on:
+  schedule:
+    - cron: '20 10 * * *'
+    - cron: '20 13 * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - "src/**"
+      - "tests/**"
+      - "requirements.txt"
+      - ".github/workflows/weekly.yml"
+permissions:
+  contents: write
+concurrency:
+  group: weekly-paper-account
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m unittest discover -s tests -v
+      - name: Check Shanghai time
+        id: clock
+        run: |
+          if [ "$(TZ=Asia/Shanghai date +%H)" -ge 18 ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+      - run: python -m src.weekly
+        if: steps.clock.outputs.ready == 'true'
+      - name: Save signals and ledger
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add signals state reports
+          if ! git diff --cached --quiet; then
+            git commit -m 'Update weekly signals and paper ledger'
+            git push
+          fi
