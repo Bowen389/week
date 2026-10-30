@@ -1,1 +1,2 @@
 baostock==0.8.9
+exchange-calendars>=4.13,<5

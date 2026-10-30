@@ -145,9 +145,16 @@ def run():
         raise RuntimeError('北京时间18点前不生成周收盘信号或盘后账本')
     state_path = ROOT/'state/account.json'
     state = json.loads(state_path.read_text()) if state_path.exists() else dict(cash=200000., positions=[], processed=[], events=[], started=now.date().isoformat())
-    login = bs.login()
-    if login.error_code != '0':
-        raise RuntimeError(login.error_msg)
+    source = 'baostock'
+    try:
+        login = bs.login()
+        if login.error_code != '0':
+            raise RuntimeError(login.error_msg)
+    except Exception as exc:
+        print(f'BAOSTOCK_UNAVAILABLE: {exc}; switching to Tencent HTTPS', flush=True)
+        from .backup import TencentSource
+        bs = TencentSource()
+        source = 'tencent_https'
     try:
         today = now.date().isoformat()
         start = (dt.date.fromisoformat(state.get('last_day', today))-dt.timedelta(days=14)).isoformat()
@@ -176,6 +183,8 @@ def run():
             quotes={}; candidates=[]; failures=[]
             # Include enough prior history to find the last traded close even after suspension.
             history_start = (dt.date.fromisoformat(wk[0])-dt.timedelta(days=60)).isoformat() if final else day
+            if hasattr(bs, 'prefetch'):
+                bs.prefetch(sorted(scan), history_start, day)
             for code,name in sorted(scan.items()):
                 try:
                     bars=rows(bs.query_history_k_data_plus(code, 'date,code,open,high,low,close,preclose,volume,tradestatus,isST', start_date=history_start, end_date=day, frequency='d', adjustflag='3'))
@@ -196,7 +205,7 @@ def run():
             # All data validated before any account mutation.
             state['events'].extend(execute(state,day,sessions,quotes,pending))
             if final:
-                payload=dict(signal_date=day,generated_at=now.isoformat(),signals=candidates,count=len(candidates),universe_count=len(universe),rule=STRATEGY, parameters=RULE)
+                payload=dict(data_source=source, signal_date=day,generated_at=now.isoformat(),signals=candidates,count=len(candidates),universe_count=len(universe),rule=STRATEGY, parameters=RULE)
                 save(ROOT/f'signals/{day}/signals.json',payload)
                 (ROOT/f'signals/{day}/README.md').write_text(f'# {day} 262B周线候选\n\n共 {len(candidates)} 只；周涨幅(4%,12%]。下一交易日仅开盘溢价[0%,4%]时模拟买入，买入后第2个交易日收盘退出。\n\n'+ '\n'.join(f"- {s['code']} {s['name']}：周涨幅 {s['week_gain_pct']:.2f}%" for s in candidates)+'\n',encoding='utf-8')
             state['strategy'] = STRATEGY
@@ -211,9 +220,10 @@ def run():
                                   buys=sum(e['action']=='BUY' for e in events)))
         save(ROOT/'reports/weekly_counts.json',summaries)
         (ROOT/'reports/weekly_counts.csv').write_text('week_end,count,strategy,opening_matches,buys\n'+''.join(f"{p['date']},{p['count']},{p['strategy']},{p['opening_matches']},{p['buys']}\n" for p in summaries),encoding='utf-8')
-        save(ROOT/'reports/latest.json',dict(strategy=STRATEGY,parameters=RULE,checked_at=now.isoformat(),cash=state['cash'],positions=state['positions'],last_day=state.get('last_day'),mode='EOD_DAILY_BAR_PAPER_NOT_LIVE',weekly_counts=summaries))
+        save(ROOT/'reports/latest.json',dict(data_source=source,strategy=STRATEGY,parameters=RULE,checked_at=now.isoformat(),cash=state['cash'],positions=state['positions'],last_day=state.get('last_day'),mode='EOD_DAILY_BAR_PAPER_NOT_LIVE',weekly_counts=summaries))
     finally:
         bs.logout()
 
 if __name__=='__main__':
     run()
+
