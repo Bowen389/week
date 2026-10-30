@@ -26,7 +26,9 @@ class TencentSource:
         pass
     def query_trade_dates(self, start_date, end_date):
         import exchange_calendars as xcals
-        cal = xcals.get_calendar('XSHG', start=start_date, end=end_date)
+        # XSHG publishes holidays one year at a time; use only known dates.
+        known_end = f'{date.today().year}-12-31'
+        cal = xcals.get_calendar('XSHG', start=start_date, end=min(end_date,known_end))
         return Result([dict(calendar_date=str(d.date()), is_trading_day='1') for d in cal.sessions])
     def query_stock_basic(self):
         ranks = tencent.rank_snapshot()
