@@ -1,0 +1,27 @@
+{
+  "data_source": "tencent_https",
+  "strategy": "WEEK_262B_V1",
+  "parameters": {
+    "strategy": "WEEK_262B_V1",
+    "week_gain_min_exclusive": 4,
+    "week_gain_max_inclusive": 12,
+    "opening_gap_min_inclusive": 0,
+    "opening_gap_max_inclusive": 4,
+    "capital": 200000,
+    "exit_sessions": 2
+  },
+  "checked_at": "2026-10-30T19:07:50.518479+08:00",
+  "cash": 200000,
+  "positions": [],
+  "last_day": "2026-10-30",
+  "mode": "EOD_DAILY_BAR_PAPER_NOT_LIVE",
+  "weekly_counts": [
+    {
+      "date": "2026-10-30",
+      "count": 4,
+      "strategy": "WEEK_262B_V1",
+      "opening_matches": 0,
+      "buys": 0
+    }
+  ]
+}

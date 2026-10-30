@@ -1,0 +1,63 @@
+{
+  "data_source": "tencent_https",
+  "signal_date": "2026-10-30",
+  "generated_at": "2026-10-30T19:07:50.518479+08:00",
+  "signals": [
+    {
+      "code": "sh.600908",
+      "name": "无锡银行",
+      "strategy": "WEEK_262B_V1",
+      "signal_date": "2026-10-30",
+      "previous_week_close": 5.73,
+      "week_open": 5.69,
+      "week_close": 5.99,
+      "week_gain_pct": 4.537521815008726,
+      "week_body_gain_pct": 5.272407732864675
+    },
+    {
+      "code": "sh.601169",
+      "name": "北京银行",
+      "strategy": "WEEK_262B_V1",
+      "signal_date": "2026-10-30",
+      "previous_week_close": 5.41,
+      "week_open": 5.41,
+      "week_close": 5.66,
+      "week_gain_pct": 4.621072088724584,
+      "week_body_gain_pct": 4.621072088724584
+    },
+    {
+      "code": "sz.002807",
+      "name": "江阴银行",
+      "strategy": "WEEK_262B_V1",
+      "signal_date": "2026-10-30",
+      "previous_week_close": 4.0,
+      "week_open": 3.99,
+      "week_close": 4.36,
+      "week_gain_pct": 9.0,
+      "week_body_gain_pct": 9.273182957393484
+    },
+    {
+      "code": "sz.002958",
+      "name": "青农商行",
+      "strategy": "WEEK_262B_V1",
+      "signal_date": "2026-10-30",
+      "previous_week_close": 2.83,
+      "week_open": 2.82,
+      "week_close": 3.03,
+      "week_gain_pct": 7.067137809187279,
+      "week_body_gain_pct": 7.446808510638298
+    }
+  ],
+  "count": 4,
+  "universe_count": 3052,
+  "rule": "WEEK_262B_V1",
+  "parameters": {
+    "strategy": "WEEK_262B_V1",
+    "week_gain_min_exclusive": 4,
+    "week_gain_max_inclusive": 12,
+    "opening_gap_min_inclusive": 0,
+    "opening_gap_max_inclusive": 4,
+    "capital": 200000,
+    "exit_sessions": 2
+  }
+}
