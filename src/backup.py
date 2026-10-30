@@ -39,7 +39,7 @@ class TencentSource:
     def prefetch(self, codes, start, end):
         def one(code):
             try:
-                bars = tencent.history(code.replace('.', ''), 120)
+                bars = tencent.history(code.replace('.', ''), 400)
                 q = self.quotes.get(code)
                 if q and q['timestamp'][:8] == end.replace('-','') and Decimal(q['volume']) > 0:
                     if not bars or bars[-1]['date'] != end or abs(Decimal(bars[-1]['close'])-Decimal(q['price'])) > Decimal('.01'):
