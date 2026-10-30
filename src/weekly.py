@@ -145,6 +145,9 @@ def run():
         raise RuntimeError('北京时间18点前不生成周收盘信号或盘后账本')
     state_path = ROOT/'state/account.json'
     state = json.loads(state_path.read_text()) if state_path.exists() else dict(cash=200000., positions=[], processed=[], events=[], started=now.date().isoformat())
+    if now.date().isoformat() in state['processed']:
+        print('ENGINE_ALREADY_SETTLED: 今日账本已完成，保留信号和成交；可独立补发通知', flush=True)
+        return
     source = 'baostock'
     try:
         login = bs.login()
@@ -226,4 +229,5 @@ def run():
 
 if __name__=='__main__':
     run()
+
 

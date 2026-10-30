@@ -33,15 +33,33 @@ jobs:
           if [ "$(TZ=Asia/Shanghai date +%H)" -ge 18 ]; then
             echo "ready=true" >> "$GITHUB_OUTPUT"
           fi
-      - run: python -m src.weekly
+      - name: Generate signals and settle paper account
+        id: engine
+        run: python -u -m src.weekly
         if: steps.clock.outputs.ready == 'true'
       - name: Save signals and ledger
+        id: persist
         if: always()
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add signals state reports
           if ! git diff --cached --quiet; then
-            git commit -m 'Update weekly signals and paper ledger'
+            git commit -m 'Update weekly signals and paper ledger [skip ci]'
             git push
           fi
+      - name: Send weekly signals through ServerChan
+        if: success() && steps.clock.outputs.ready == 'true' && steps.engine.outcome == 'success'
+        env:
+          SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}
+          SENDKEY: ${{ secrets.SENDKEY }}
+        run: python -u -m src.notify
+      - name: Save notification acknowledgements
+        if: always() && steps.clock.outputs.ready == 'true'
+        run: |
+          git add state
+          if ! git diff --cached --quiet; then
+            git commit -m 'Record 262B signal delivery status [skip ci]'
+            git push
+          fi
+
