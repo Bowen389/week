@@ -1,4 +1,4 @@
-name: Backfill candidates for 2026-11-06
+name: Tencent-only candidate backfill for 2026-11-06
 on:
   push:
     branches: [backfill-2026-11-06]
@@ -27,6 +27,17 @@ jobs:
                   return cls(2026, 11, 6, 21, 0, tzinfo=tz)
           
           weekly.dt = SimpleNamespace(datetime=BackfillClock, date=date, timedelta=timedelta)
+          import json
+          import baostock
+          from src import tencent
+
+          baostock.login = lambda: SimpleNamespace(error_code='offline', error_msg='use Tencent HTTPS directly')
+          original_history = tencent.history
+          tencent.history = lambda code, count=400: original_history(code, 90)
+          state_file = weekly.ROOT / 'state/account.json'
+          state = json.loads(state_file.read_text())
+          state['last_day'] = '2026-11-06'
+          state_file.write_text(json.dumps(state))
           weekly.run()
           PY
           cat signals/2026-11-06/README.md
