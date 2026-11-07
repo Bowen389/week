@@ -1,4 +1,4 @@
-name: Tencent-only candidate backfill for 2026-11-06
+name: Historical snapshot candidate backfill for 2026-11-06
 on:
   push:
     branches: [backfill-2026-11-06]
@@ -17,30 +17,62 @@ jobs:
       - name: Scan Friday candidates
         run: |
           python -u - <<'PY'
-          from datetime import datetime, date, timedelta
-          from types import SimpleNamespace
-          from src import weekly
-          
-          class BackfillClock(datetime):
-              @classmethod
-              def now(cls, tz=None):
-                  return cls(2026, 11, 6, 21, 0, tzinfo=tz)
-          
-          weekly.dt = SimpleNamespace(datetime=BackfillClock, date=date, timedelta=timedelta)
           import json
-          import baostock
-          from src import tencent
-
-          baostock.login = lambda: SimpleNamespace(error_code='offline', error_msg='use Tencent HTTPS directly')
-          original_history = tencent.history
-          tencent.history = lambda code, count=400: original_history(code, 90)
-          state_file = weekly.ROOT / 'state/account.json'
-          state = json.loads(state_file.read_text())
-          state['last_day'] = '2026-11-06'
-          state_file.write_text(json.dumps(state))
-          weekly.run()
+          from concurrent.futures import ThreadPoolExecutor
+          from decimal import Decimal
+          from pathlib import Path
+          from urllib.parse import urlencode
+          from src import tencent, weekly
+          
+          def snapshot(day):
+              def page(n):
+                  params=dict(reportName='RPT_VALUEANALYSIS_DET',columns='SECURITY_CODE,SECURITY_NAME_ABBR,TRADE_DATE,CLOSE_PRICE',filter=f"(TRADE_DATE='{day}')",pageSize=5000,pageNumber=n,sortColumns='SECURITY_CODE',sortTypes='1',source='WEB',client='WEB')
+                  data=json.loads(tencent.fetch('https://datacenter-web.eastmoney.com/api/data/v1/get?'+urlencode(params)))
+                  return data['result']
+              first=page(1)
+              result={r['SECURITY_CODE']:r for n in range(1,int(first['pages'])+1) for r in (first if n==1 else page(n))['data']}
+              assert len(result)==int(first['count']) and len(result)>4000
+              assert all(r['TRADE_DATE'][:10]==day for r in result.values())
+              return result
+          
+          day='2026-11-06'
+          sessions=['2026-11-02','2026-11-03','2026-11-04','2026-11-05',day]
+          current=snapshot(day)
+          prior=snapshot('2026-10-30')
+          pool=[]
+          for code,r in current.items():
+              full=('sh.' if code.startswith('6') else 'sz.')+code
+              if not weekly.eligible(full,r['SECURITY_NAME_ABBR']):
+                  continue
+              c=r['CLOSE_PRICE']; p=prior.get(code,{}).get('CLOSE_PRICE')
+              if c and p and not Decimal('3.95') < (Decimal(str(c))/Decimal(str(p))-1)*100 <= Decimal('12.05'):
+                  continue
+              pool.append((full,r['SECURITY_NAME_ABBR'],c))
+          print('SCREENED',len(pool),flush=True)
+          def check(item):
+              code,name,close=item
+              try:
+                  bars=tencent.history(code.replace('.',''),90)
+                  active=[b for b in bars if b['date']<=day and Decimal(b['volume'])>0]
+                  if active and active[-1]['date']==day and close and abs(Decimal(active[-1]['close'])-Decimal(str(close)))>Decimal('.01'):
+                      raise ValueError('close mismatch')
+                  m=weekly.weekly_candidate(active,sessions)
+                  return (dict(code=code,name=name,**m) if m else None),None
+              except Exception as e:
+                  return None,(code,str(e))
+          with ThreadPoolExecutor(max_workers=16) as ex:
+              results=list(ex.map(check,pool))
+          signals=[x for x,e in results if x]
+          errors=[e for x,e in results if e]
+          output=dict(signal_date=day,count=len(signals),signals=signals,errors=errors,screened=len(pool))
+          out=Path('signals')/day
+          out.mkdir(parents=True,exist_ok=True)
+          (out/'signals.json').write_text(json.dumps(output,ensure_ascii=False,indent=2))
+          (out/'README.md').write_text(json.dumps(output,ensure_ascii=False,indent=2))
+          print(json.dumps(output,ensure_ascii=False),flush=True)
+          if errors:
+              raise RuntimeError('incomplete verification')
           PY
-          cat signals/2026-11-06/README.md
       - name: Print scan report
         if: always()
         run: cat signals/2026-11-06/README.md
