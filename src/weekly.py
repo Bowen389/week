@@ -141,11 +141,12 @@ def save(path, value):
 def run():
     import baostock as bs
     now = dt.datetime.now(ZoneInfo('Asia/Shanghai'))
-    if now.hour < 18:
-        raise RuntimeError('北京时间18点前不生成周收盘信号或盘后账本')
+    # 延迟到次日时，只处理此前已经收盘的交易日。
+    cutoff = now.date() if now.hour >= 18 else now.date() - dt.timedelta(days=1)
+    today = cutoff.isoformat()
     state_path = ROOT/'state/account.json'
-    state = json.loads(state_path.read_text()) if state_path.exists() else dict(cash=200000., positions=[], processed=[], events=[], started=now.date().isoformat())
-    if now.date().isoformat() in state['processed']:
+    state = json.loads(state_path.read_text()) if state_path.exists() else dict(cash=200000., positions=[], processed=[], events=[], started=today)
+    if today in state['processed']:
         print('ENGINE_ALREADY_SETTLED: 今日账本已完成，保留信号和成交；可独立补发通知', flush=True)
         return
     source = 'baostock'
@@ -159,7 +160,6 @@ def run():
         bs = TencentSource()
         source = 'tencent_https'
     try:
-        today = now.date().isoformat()
         start = (dt.date.fromisoformat(state.get('last_day', today))-dt.timedelta(days=14)).isoformat()
         calendar = rows(bs.query_trade_dates(start_date=start, end_date=f'{now.year+1}-01-31'))
         sessions = [r['calendar_date'] for r in calendar if r['is_trading_day']=='1']
@@ -167,10 +167,6 @@ def run():
             raise RuntimeError('日历缺少未来交易日，无法判断本周是否结束')
         due = [d for d in sessions if state.get('last_day', state['started']) <= d <= today and d not in state['processed']]
         for day in due:
-            universe = rows(bs.query_stock_basic())
-            universe = [r for r in universe if eligible(r['code'], r['code_name'], r['type']) and r['status']=='1']
-            if len(universe) < 1000:
-                raise RuntimeError('股票池不完整')
             idx=sessions.index(day)
             final = week_key(day) != week_key(sessions[idx+1])
             wk = [d for d in sessions if week_key(d)==week_key(day) and d<=day]
@@ -180,7 +176,14 @@ def run():
                 f=ROOT/f'signals/{prev}/signals.json'
                 if f.exists():
                     pending=json.loads(f.read_text())['signals']
-            scan = {r['code']:r['code_name'] for r in universe} if final else {}
+            scan = {}
+            if final:
+                universe = rows(bs.query_stock_basic())
+                scan = {r['code']:r['code_name'] for r in universe
+                        if eligible(r['code'], r['code_name'], r['type']) and r['status']=='1'}
+                if len(scan) < 1000:
+                    raise RuntimeError('股票池不完整')
+                universe_count = len(scan)
             for p in state['positions']+pending:
                 scan.setdefault(p['code'],p['name'])
             quotes={}; candidates=[]; failures=[]
@@ -208,7 +211,7 @@ def run():
             # All data validated before any account mutation.
             state['events'].extend(execute(state,day,sessions,quotes,pending))
             if final:
-                payload=dict(data_source=source, signal_date=day,generated_at=now.isoformat(),signals=candidates,count=len(candidates),universe_count=len(universe),rule=STRATEGY, parameters=RULE)
+                payload=dict(data_source=source, signal_date=day,generated_at=now.isoformat(),signals=candidates,count=len(candidates),universe_count=universe_count,rule=STRATEGY, parameters=RULE)
                 save(ROOT/f'signals/{day}/signals.json',payload)
                 (ROOT/f'signals/{day}/README.md').write_text(f'# {day} 262B周线候选\n\n共 {len(candidates)} 只；周涨幅(4%,12%]。下一交易日仅开盘溢价[0%,4%]时模拟买入，买入后第2个交易日收盘退出。\n\n'+ '\n'.join(f"- {s['code']} {s['name']}：周涨幅 {s['week_gain_pct']:.2f}%" for s in candidates)+'\n',encoding='utf-8')
             state['strategy'] = STRATEGY
