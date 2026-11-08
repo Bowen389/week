@@ -1,14 +1,103 @@
 {
-  "cash": 200000,
+  "cash": 200238.87919999997,
   "positions": [],
   "processed": [
     "2026-10-27",
     "2026-10-28",
     "2026-10-29",
-    "2026-10-30"
+    "2026-10-30",
+    "2026-11-02",
+    "2026-11-03",
+    "2026-11-04",
+    "2026-11-05"
   ],
-  "events": [],
+  "events": [
+    {
+      "date": "2026-11-02",
+      "code": "sh.600908",
+      "strategy": "WEEK_262B_V1",
+      "signal_date": "2026-10-30",
+      "opening_gap_pct": -0.8347245409015025,
+      "action": "BUY_SKIPPED",
+      "entry_qualified": false,
+      "reason": "开盘溢价不在[0%,4%]"
+    },
+    {
+      "date": "2026-11-02",
+      "code": "sz.002958",
+      "strategy": "WEEK_262B_V1",
+      "signal_date": "2026-10-30",
+      "opening_gap_pct": -0.6600660066006601,
+      "action": "BUY_SKIPPED",
+      "entry_qualified": false,
+      "reason": "开盘溢价不在[0%,4%]"
+    },
+    {
+      "code": "sh.601169",
+      "name": "北京银行",
+      "strategy": "WEEK_262B_V1",
+      "signal_date": "2026-10-30",
+      "opening_gap_pct": 2.65017667844523,
+      "buy_date": "2026-11-02",
+      "price": 5.81,
+      "shares": 17200,
+      "cost": 99961.9796,
+      "exit_date": "2026-11-04",
+      "date": "2026-11-02",
+      "action": "BUY",
+      "entry_qualified": true,
+      "fee": 29.979599999999998
+    },
+    {
+      "code": "sz.002807",
+      "name": "江阴银行",
+      "strategy": "WEEK_262B_V1",
+      "signal_date": "2026-10-30",
+      "opening_gap_pct": 0.0,
+      "buy_date": "2026-11-02",
+      "price": 4.36,
+      "shares": 22900,
+      "cost": 99873.95320000002,
+      "exit_date": "2026-11-04",
+      "date": "2026-11-02",
+      "action": "BUY",
+      "entry_qualified": true,
+      "fee": 29.953200000000002
+    },
+    {
+      "code": "sh.601169",
+      "name": "北京银行",
+      "strategy": "WEEK_262B_V1",
+      "signal_date": "2026-10-30",
+      "opening_gap_pct": 2.65017667844523,
+      "buy_date": "2026-11-02",
+      "price": 5.85,
+      "shares": 17200,
+      "cost": 99961.9796,
+      "exit_date": "2026-11-04",
+      "date": "2026-11-04",
+      "action": "SELL",
+      "fee": 80.496,
+      "pnl": 577.5243999999948
+    },
+    {
+      "code": "sz.002807",
+      "name": "江阴银行",
+      "strategy": "WEEK_262B_V1",
+      "signal_date": "2026-10-30",
+      "opening_gap_pct": 0.0,
+      "buy_date": "2026-11-02",
+      "price": 4.35,
+      "shares": 22900,
+      "cost": 99873.95320000002,
+      "exit_date": "2026-11-04",
+      "date": "2026-11-04",
+      "action": "SELL",
+      "fee": 79.69199999999998,
+      "pnl": -338.6452000000281
+    }
+  ],
   "started": "2026-10-27",
   "strategy": "WEEK_262B_V1",
-  "last_day": "2026-10-30"
+  "last_day": "2026-11-05"
 }
