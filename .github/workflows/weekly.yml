@@ -43,13 +43,14 @@ jobs:
             git push
           fi
       - name: Send weekly signals through ServerChan
-        if: success() && steps.engine.outcome == 'success'
+        id: notify
+        if: always() && steps.persist.outcome == 'success'
         env:
           SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}
           SENDKEY: ${{ secrets.SENDKEY }}
         run: python -u -m src.notify
       - name: Save notification acknowledgements
-        if: always() && steps.clock.outputs.ready == 'true'
+        if: always() && steps.notify.outcome != 'skipped' && steps.persist.outcome == 'success'
         run: |
           git add state
           if ! git diff --cached --quiet; then
