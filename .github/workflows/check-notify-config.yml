@@ -1,0 +1,20 @@
+name: Check weekly notification configuration
+on:
+  push:
+    branches: [check-weekly-notify-config]
+permissions: {}
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check credential availability without exposing values
+        env:
+          SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}
+          SENDKEY: ${{ secrets.SENDKEY }}
+        run: |
+          if [ -n "${SERVERCHAN_SENDKEY//[[:space:]]/}" ] || [ -n "${SENDKEY//[[:space:]]/}" ]; then
+            echo 'SERVERCHAN_CONFIGURED'
+          else
+            echo 'SERVERCHAN_NOT_CONFIGURED'
+            exit 1
+          fi
