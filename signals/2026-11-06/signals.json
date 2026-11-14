@@ -1,0 +1,30 @@
+{
+  "data_source": "tencent_https",
+  "signal_date": "2026-11-06",
+  "generated_at": "2026-11-15T00:38:43.853363+08:00",
+  "signals": [
+    {
+      "code": "sh.600168",
+      "name": "武汉控股",
+      "strategy": "WEEK_262B_V1",
+      "signal_date": "2026-11-06",
+      "previous_week_close": 4.23,
+      "week_open": 4.21,
+      "week_close": 4.41,
+      "week_gain_pct": 4.25531914893617,
+      "week_body_gain_pct": 4.750593824228028
+    }
+  ],
+  "count": 1,
+  "universe_count": 3052,
+  "rule": "WEEK_262B_V1",
+  "parameters": {
+    "strategy": "WEEK_262B_V1",
+    "week_gain_min_exclusive": 4,
+    "week_gain_max_inclusive": 12,
+    "opening_gap_min_inclusive": 0,
+    "opening_gap_max_inclusive": 4,
+    "capital": 200000,
+    "exit_sessions": 2
+  }
+}
