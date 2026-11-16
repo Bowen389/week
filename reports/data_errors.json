@@ -2,11 +2,507 @@
   "date": "2026-11-13",
   "errors": [
     {
+      "code": "sh.603248",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603257",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603271",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603278",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603281",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603282",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603283",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603285",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603288",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603289",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603290",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603291",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603293",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603296",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603297",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603298",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603299",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603300",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603301",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603303",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603305",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603306",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603307",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603308",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603309",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603310",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603311",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603312",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603313",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603315",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603316",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603317",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603318",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603319",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603320",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603321",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603322",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603323",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603324",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603325",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603326",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603327",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603328",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603329",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603330",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603331",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603332",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603333",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603334",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603335",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603336",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603337",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603338",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603339",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603341",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603344",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603345",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603348",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603350",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603351",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603352",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603353",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603355",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603356",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603357",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603358",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603360",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603363",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603365",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603366",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603367",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603368",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603369",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603370",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603373",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603375",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603376",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603379",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603380",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603381",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603382",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603383",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603385",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603386",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603387",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603389",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603390",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603391",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603392",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603393",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603395",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603396",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603399",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603400",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603402",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603406",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603407",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603408",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603409",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603416",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603418",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603421",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603435",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603439",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603444",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603448",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
       "code": "sh.603456",
       "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
     },
     {
+      "code": "sh.603458",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603459",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603466",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603468",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603477",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603486",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603488",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603489",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603496",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603499",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603500",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603501",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603505",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603506",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603507",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
       "code": "sh.603508",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603511",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603515",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603516",
       "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
     },
     {
@@ -22,6 +518,10 @@
       "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
     },
     {
+      "code": "sh.603520",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
       "code": "sh.603527",
       "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
     },
@@ -30,7 +530,15 @@
       "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
     },
     {
+      "code": "sh.603529",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
       "code": "sh.603530",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603533",
       "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
     },
     {
@@ -726,6 +1234,10 @@
       "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
     },
     {
+      "code": "sh.603887",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
       "code": "sh.603888",
       "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
     },
@@ -790,7 +1302,15 @@
       "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
     },
     {
+      "code": "sh.603915",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
       "code": "sh.603916",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.603917",
       "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
     },
     {
@@ -1323,6 +1843,14 @@
     },
     {
       "code": "sh.605366",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.605368",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sh.605369",
       "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
     },
     {
@@ -2330,6 +2858,10 @@
       "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
     },
     {
+      "code": "sz.000731",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
       "code": "sz.000733",
       "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
     },
@@ -2927,6 +3459,10 @@
     },
     {
       "code": "sz.000987",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sz.000988",
       "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
     },
     {
@@ -4402,6 +4938,10 @@
       "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
     },
     {
+      "code": "sz.002268",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
       "code": "sz.002269",
       "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
     },
@@ -4470,7 +5010,15 @@
       "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
     },
     {
+      "code": "sz.002287",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
       "code": "sz.002289",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sz.002290",
       "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
     },
     {
@@ -4819,6 +5367,10 @@
     },
     {
       "code": "sz.002386",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sz.002387",
       "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
     },
     {
@@ -5514,6 +6066,10 @@
       "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
     },
     {
+      "code": "sz.002589",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
       "code": "sz.002590",
       "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
     },
@@ -6003,6 +6559,10 @@
     },
     {
       "code": "sz.002739",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sz.002741",
       "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
     },
     {
@@ -6667,6 +7227,10 @@
     },
     {
       "code": "sz.002939",
+      "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
+    },
+    {
+      "code": "sz.002940",
       "error": "免费行情请求失败: HTTPError: HTTP Error 501: Not Implemented"
     },
     {
