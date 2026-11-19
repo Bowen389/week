@@ -10,15 +10,29 @@
     "capital": 200000,
     "exit_sessions": 2
   },
-  "checked_at": "2026-10-31T23:47:27.000139+08:00",
-  "cash": 200000,
+  "checked_at": "2026-11-20T05:38:02.659528+08:00",
+  "cash": 197315.27169999998,
   "positions": [],
-  "last_day": "2026-10-30",
+  "last_day": "2026-11-19",
   "mode": "EOD_DAILY_BAR_PAPER_NOT_LIVE",
   "weekly_counts": [
     {
       "date": "2026-10-30",
       "count": 4,
+      "strategy": "WEEK_262B_V1",
+      "opening_matches": 2,
+      "buys": 2
+    },
+    {
+      "date": "2026-11-06",
+      "count": 1,
+      "strategy": "WEEK_262B_V1",
+      "opening_matches": 1,
+      "buys": 1
+    },
+    {
+      "date": "2026-11-13",
+      "count": 0,
       "strategy": "WEEK_262B_V1",
       "opening_matches": 0,
       "buys": 0

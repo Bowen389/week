@@ -1,0 +1,18 @@
+{
+  "data_source": "tencent_https",
+  "signal_date": "2026-11-13",
+  "generated_at": "2026-11-20T05:38:02.659528+08:00",
+  "signals": [],
+  "count": 0,
+  "universe_count": 3052,
+  "rule": "WEEK_262B_V1",
+  "parameters": {
+    "strategy": "WEEK_262B_V1",
+    "week_gain_min_exclusive": 4,
+    "week_gain_max_inclusive": 12,
+    "opening_gap_min_inclusive": 0,
+    "opening_gap_max_inclusive": 4,
+    "capital": 200000,
+    "exit_sessions": 2
+  }
+}
